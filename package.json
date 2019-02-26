@@ -1,0 +1,25 @@
+{
+  "name": "apollo-mini-game",
+  "version": "0.0.0",
+  "description": "A digital replica of the famous (at least in Brazil) Apollo Mini Game from the 90's",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliosampaio/apollo-mini-game.git"
+  },
+  "keywords": [
+    "apollo",
+    "mini",
+    "game",
+    "javascript"
+  ],
+  "author": "Julio Sampaio <juliodssampaio@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juliosampaio/apollo-mini-game/issues"
+  },
+  "homepage": "https://github.com/juliosampaio/apollo-mini-game#readme"
+}
