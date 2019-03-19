@@ -1,7 +1,14 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
+import { tileStyle } from "./tile.style";
+import style from "../../../theme";
 
 export interface TileProps {
-  isActive: boolean
+  status: "on" | "off";
+  className?: string;
 }
 
-export const Tile = () => <div />;
+export const Tile: FunctionComponent<TileProps> = style.div`${tileStyle}`;
+
+Tile.defaultProps = {
+  status: "off"
+};

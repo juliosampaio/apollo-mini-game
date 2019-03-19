@@ -1,3 +1,14 @@
+export interface IDisplay {
+  colors: {
+    active: string;
+    background: string;
+    inactive: string;
+  };
+}
+
+export interface ITile extends IDisplay {}
+
 export interface ThemeInterface {
-  primaryColor: string;
+  Display: IDisplay;
+  Tile: ITile;
 }
