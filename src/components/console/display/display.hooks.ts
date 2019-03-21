@@ -1,73 +1,80 @@
 import { useState, useEffect } from "react";
-
-
-interface ITileStatus {
-  0: "off";
-  1: "on";
-  [key: number]: "on" | "off";
-}
-
-interface IMatrixTile {
-  status: "on" | "off";
-}
-
-interface ISetTileMatrix {
-  (matrix: IMatrixTile[]): void;
-}
-
-const OFF = 0;
-const ON = 1;
-const TILE_STATUS: ITileStatus = { [OFF]: "off", [ON]: "on" };
+import { IShape, IMatrixTile, TILE_STATUS, OFF } from "../../../constants";
 
 const generateInitialMatrixState = (rows: number, columns: number) =>
   Array(rows * columns)
     .fill(0)
-    .map(() => <IMatrixTile>{ status: TILE_STATUS[OFF] });
+    .map(
+      () =>
+        ({
+          status: TILE_STATUS[OFF]
+        } as IMatrixTile)
+    );
 
 export const drawShapes = (
-  shapes: any = [],
+  shapes: IShape[],
   columns: number,
+  rows: number,
   gridState: IMatrixTile[]
 ) => {
-  let rowIndex = 0;
-  let colIndex = 0;
-  let startIndexRow = rowIndex * columns;
-  let startIndexColumn = colIndex;
-  let startIndex = startIndexRow + startIndexColumn;
-
   if (gridState.length === 0) {
     return gridState;
   }
 
-  shapes.forEach((shape: any) => {
-    shape.forEach((row: any) => {
-      row.forEach((value: number, rIdx: number) => {
-        gridState[startIndex].status = TILE_STATUS[value];
+  const gridStateCopy = [...gridState];
+  const rowsIndex = columns * rows - columns;
+
+  shapes.forEach(shape => {
+    const shapeCopy = { ...shape };
+    let startIndexRow = shapeCopy.startRowIndex * columns;
+    let startIndexColumn = shapeCopy.startColIndex;
+    const shapeRows = shapeCopy.matrix.length;
+    const exeedsColumns =
+      startIndexColumn + shapeCopy.matrix[0].length > columns;
+    const exeedsRows = shapeRows + startIndexRow > rowsIndex;
+    let columnsToDecrease = 0;
+    let rowsToDecrease = 0;
+
+    if (exeedsColumns) {
+      columnsToDecrease =
+        startIndexColumn + shapeCopy.matrix[0].length - columns;
+      startIndexColumn = startIndexColumn - columnsToDecrease;
+    }
+    if (exeedsRows) {
+      debugger
+      rowsToDecrease = (shapeRows + startIndexRow - rowsIndex) * columns;
+      startIndexRow = startIndexRow - rowsToDecrease;
+    }
+    console.log(startIndexRow)
+    let startIndex = startIndexRow + startIndexColumn;
+
+    shapeCopy.matrix.forEach(row => {
+      row.forEach(value => {
+        gridStateCopy[startIndex].status = TILE_STATUS[value];
         startIndex++;
       });
-      rowIndex++;
-      startIndexRow = rowIndex * columns;
-      startIndexColumn = colIndex;
+      shapeCopy.startRowIndex++;
+      startIndexRow = shapeCopy.startRowIndex * columns - rowsToDecrease;
+      startIndexColumn = shapeCopy.startColIndex - columnsToDecrease;
       startIndex = startIndexRow + startIndexColumn;
     });
   });
-  return gridState;
+
+  return gridStateCopy;
 };
 
 export const useTileMatrix = (
   rows: number,
   columns: number,
   shapes: any
-): [IMatrixTile[], ISetTileMatrix] => {
-  console.log("Tile Matrix");
+): IMatrixTile[] => {
   const initialState = generateInitialMatrixState(rows, columns);
   const [matrix, setMatrix] = useState(initialState);
 
   useEffect(() => {
-    console.log('wtf...');
-    const newMatrix = drawShapes(shapes, columns, matrix);
+    const newMatrix = drawShapes(shapes, columns, rows, matrix);
     setMatrix(newMatrix);
-  });
+  }, [shapes]);
 
-  return [matrix, <any>setMatrix];
+  return matrix;
 };

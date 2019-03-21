@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect } from "react";
 import { Tile } from "../tile/tile.component";
 import style from "../../../theme";
 import { displayStyle } from "./display.style";
-import { useTileMatrix, drawShapes } from "./display.hooks";
+import { useTileMatrix } from "./display.hooks";
 
 export interface DisplayProps {
   rows: number;
@@ -17,11 +17,10 @@ export const Display: FunctionComponent<DisplayProps> = ({
   columns,
   shapes
 }) => {
-  const [tileMatrix] = useTileMatrix(rows, columns, shapes);
+  const tileMatrix = useTileMatrix(rows, columns, shapes);
   return (
     <DisplayWrapper rows={rows} columns={columns}>
       {tileMatrix.map(({ status }, idx) => {
-        console.log(status);
         return <Tile key={idx} status={status} />;
       })}
     </DisplayWrapper>
