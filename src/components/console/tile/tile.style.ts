@@ -3,6 +3,7 @@ import { TileProps } from "./tile.component";
 
 export const tileStyle = css<TileProps>`
   border: 1px solid;
+  border-radius: 2px;
   border-color: ${({ status, theme }) =>
     theme.Tile.colors[status === "on" ? "active" : "inactive"]};
   padding: 1px;

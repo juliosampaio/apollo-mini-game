@@ -41,11 +41,9 @@ export const drawShapes = (
       startIndexColumn = startIndexColumn - columnsToDecrease;
     }
     if (exeedsRows) {
-      debugger
-      rowsToDecrease = (shapeRows + startIndexRow - rowsIndex) * columns;
+      rowsToDecrease = ((shapeRows + startIndexRow - rowsIndex) * columns) - columns;
       startIndexRow = startIndexRow - rowsToDecrease;
     }
-    console.log(startIndexRow)
     let startIndex = startIndexRow + startIndexColumn;
 
     shapeCopy.matrix.forEach(row => {
