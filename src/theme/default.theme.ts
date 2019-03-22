@@ -6,6 +6,12 @@ const Colors = {
   Black: "#000000"
 };
 
+const Console = {
+  colors: {
+    background: Colors.Black
+  }
+}
+
 const Display = {
   colors: {
     active: Colors.Black,
@@ -19,6 +25,7 @@ const Tile = {
 };
 
 export const defaultTheme: ThemeInterface = {
+  Console,
+  Display,
   Tile,
-  Display
 };

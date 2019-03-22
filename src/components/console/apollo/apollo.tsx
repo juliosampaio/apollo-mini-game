@@ -3,11 +3,10 @@ import { Tile } from "../tile";
 import { Display } from "../display";
 import style from "../../../theme";
 import { IShape } from "../../../constants";
-import { drawShapes } from "../display/display.hooks";
+import { wrapperStyle } from "./apollo.style";
 
-const ApolloWrapper = style.div`
+const ApolloWrapper = style.div`${wrapperStyle}`;
 
-`;
 const L: IShape = {
   matrix: [[1, 0], [1, 0], [1, 0], [1, 1]],
   startColIndex: 0,
@@ -29,12 +28,7 @@ const i: IShape = {
   startRowIndex: 0
 };
 const C: IShape = {
-  matrix: [
-    [0,1,0],
-    [1,1,1],
-    [0,1,0],
-    [1,0,1],
-  ],
+  matrix: [[0, 1, 0], [1, 1, 1], [0, 1, 0], [1, 0, 1]],
   startColIndex: 0,
   startRowIndex: 0
 };
@@ -50,7 +44,9 @@ export const Apollo = () => {
         <label htmlFor="shape">Shape</label>
         <select id="shape">
           {Object.keys(shapesC).map(k => (
-            <option key={k} value={k}>{k}</option>
+            <option key={k} value={k}>
+              {k}
+            </option>
           ))}
         </select>
         <label htmlFor="row">Row</label>

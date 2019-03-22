@@ -1,3 +1,7 @@
+export interface IConsole {
+  colors: { background: string };
+}
+
 export interface IDisplay {
   colors: {
     active: string;
@@ -9,6 +13,7 @@ export interface IDisplay {
 export interface ITile extends IDisplay {}
 
 export interface ThemeInterface {
+  Console: IConsole;
   Display: IDisplay;
   Tile: ITile;
 }
