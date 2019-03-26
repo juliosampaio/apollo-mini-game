@@ -16,3 +16,27 @@ export const displayWrapperStyle = css`
   background-color: ${({ theme }) => theme.Display.colors.background};
   padding: 4px;
 `;
+
+export const levelDisplayStyle = css`
+  font-family: ${({ theme }) => theme.Display.font.family};
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  span {
+    display: block;
+    text-align: center;
+  }
+`;
+
+export const displayRightAreaStyle = css`
+  padding-left: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.6fr 0.5fr 1fr;
+`;
+
+export const scoreDisplayStyle = css`
+  font-family: ${({ theme }) => theme.Display.font.family};
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+`;

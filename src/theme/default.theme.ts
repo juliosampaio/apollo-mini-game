@@ -10,9 +10,12 @@ const Console = {
   colors: {
     background: Colors.Black
   }
-}
+};
 
 const Display = {
+  font: {
+    family: "Digital"
+  },
   colors: {
     active: Colors.Black,
     background: Colors.BattleshipGray,
@@ -27,5 +30,5 @@ const Tile = {
 export const defaultTheme: ThemeInterface = {
   Console,
   Display,
-  Tile,
+  Tile
 };

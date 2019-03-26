@@ -3,6 +3,7 @@ export interface IConsole {
 }
 
 export interface IDisplay {
+  font: { family: string };
   colors: {
     active: string;
     background: string;

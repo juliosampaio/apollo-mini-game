@@ -39,7 +39,7 @@ export const Apollo = () => {
 
   return (
     <ApolloWrapper>
-      <Display rows={20} columns={10} shapes={shapes} />
+      <Display rows={20} columns={10} shapes={shapes} speed={0} level={0} />
       <div style={{ display: "flex", flexDirection: "column" }}>
         <label htmlFor="shape">Shape</label>
         <select id="shape">

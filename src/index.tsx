@@ -4,7 +4,12 @@ import { createGlobalStyle, theme, ThemeProvider } from "./theme";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-const GlobalStyle = createGlobalStyle``;
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: Digital;
+    src: url(/fonts/digital-7.regular.ttf);
+  }
+`;
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

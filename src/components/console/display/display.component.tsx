@@ -1,8 +1,22 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { Tile } from "../tile/tile.component";
 import style from "../../../theme";
-import { displayWrapperStyle, tileMatrixStyle } from "./display.style";
+import {
+  displayRightAreaStyle,
+  displayWrapperStyle,
+  tileMatrixStyle,
+  levelDisplayStyle,
+  scoreDisplayStyle
+} from "./display.style";
 import { useTileMatrix } from "./display.hooks";
+
+export interface DisplayProps {
+  rows: number;
+  columns: number;
+  shapes?: any;
+  speed: number;
+  level: number;
+}
 
 export interface TileMatrixProps {
   rows: number;
@@ -13,32 +27,21 @@ export interface TileMatrixProps {
 
 const DisplayWrapper = style.div`${displayWrapperStyle}`;
 
-const DisplayLeftArea = style.div`
-  display: grid;
-`;
+const DisplayLeftArea = style.div``;
 
 const TileMatrixWrapper = style.div`
   ${tileMatrixStyle}    
 `;
 
-const ScoreDisplay = style.div`
+const ScoreDisplay = style.div`${scoreDisplayStyle}`;
+
+const DisplayRightArea = style.div`${displayRightAreaStyle}`;
+
+const UnknowElement = style.div`
   
 `;
 
-const DisplayRightArea = style.div`
-  padding-left: 10px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: .6fr .5fr 1fr;
-`;
-
-const UnknowElement = style.div`
-  border: 1px solid red;
-`;
-
-const LevelDisplay = style.div`
-  border: 1px solid red;
-`;
+const LevelDisplay = style.div`${levelDisplayStyle}`;
 
 const TileMatrix: FunctionComponent<TileMatrixProps> = ({
   rows,
@@ -56,10 +59,12 @@ const TileMatrix: FunctionComponent<TileMatrixProps> = ({
   );
 };
 
-export const Display: FunctionComponent<TileMatrixProps> = ({
+export const Display: FunctionComponent<DisplayProps> = ({
   rows,
   columns,
-  shapes
+  shapes,
+  speed,
+  level
 }) => {
   return (
     <DisplayWrapper>
@@ -70,7 +75,12 @@ export const Display: FunctionComponent<TileMatrixProps> = ({
       <DisplayRightArea>
         <TileMatrix rows={4} columns={4} shapes={[]} />
         <UnknowElement />
-        <LevelDisplay />
+        <LevelDisplay>
+          <span>Speed</span>
+          <span>{speed}</span>
+          <span>Level</span>
+          <span>{level}</span>
+        </LevelDisplay>
       </DisplayRightArea>
     </DisplayWrapper>
   );
