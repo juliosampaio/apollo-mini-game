@@ -29,17 +29,13 @@ const DisplayWrapper = style.div`${displayWrapperStyle}`;
 
 const DisplayLeftArea = style.div``;
 
-const TileMatrixWrapper = style.div`
-  ${tileMatrixStyle}    
-`;
+const TileMatrixWrapper = style.div`${tileMatrixStyle}`;
 
 const ScoreDisplay = style.div`${scoreDisplayStyle}`;
 
 const DisplayRightArea = style.div`${displayRightAreaStyle}`;
 
-const UnknowElement = style.div`
-  
-`;
+const UnknowElement = style.div``;
 
 const LevelDisplay = style.div`${levelDisplayStyle}`;
 

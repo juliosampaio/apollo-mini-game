@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Tile } from "../tile";
 import { Display } from "../display";
+import { Controls } from "../controls";
 import style from "../../../theme";
 import { IShape } from "../../../constants";
 import { wrapperStyle } from "./apollo.style";
@@ -40,7 +40,8 @@ export const Apollo = () => {
   return (
     <ApolloWrapper>
       <Display rows={20} columns={10} shapes={shapes} speed={0} level={0} />
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <Controls />
+      {/* <div style={{ display: "flex", flexDirection: "column" }}>
         <label htmlFor="shape">Shape</label>
         <select id="shape">
           {Object.keys(shapesC).map(k => (
@@ -80,7 +81,7 @@ export const Apollo = () => {
         >
           Draw
         </button>
-      </div>
+      </div> */}
     </ApolloWrapper>
   );
 };
