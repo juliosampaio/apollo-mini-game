@@ -1,3 +1,7 @@
 :global(:root) {
   --console-color: #0d1316;
+  --console-strip1-color: #0b3d31;
+  --console-strip2-color: #a08e0d;
+  --display-color: #6d785c;
+  --display-tile-color: #000;
 }

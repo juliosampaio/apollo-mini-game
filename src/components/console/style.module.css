@@ -15,15 +15,14 @@
   width: 180px;
   height: 220px;
   border: 10px solid;
-  border-top-color: #0b3d31;
-  border-right-color: #0b3d31;
-  border-bottom-color: #a08e0d;
-  border-left-color: #a08e0d;
+  border-top-color: var(--console-strip1-color);
+  border-right-color: var(--console-strip1-color);
+  border-bottom-color: var(--console-strip2-color);
+  border-left-color: var(--console-strip2-color);
   border-spacing: 10px;
   margin: 0 auto;
   padding: 15px 20px;
   background-color: var(--console-color);
-  padding-bottom: 10px;
 }
 
 .division {
