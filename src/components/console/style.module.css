@@ -1,0 +1,78 @@
+@value buttonContent from '../button/style.module.css';
+@value labelsWrapper from '../button/style.module.css';
+
+.console {
+  background-color: var(--console-color);
+  width: 300px;
+  height: 600px;
+  border-radius: 20px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
+.displayContainer {
+  width: 180px;
+  height: 220px;
+  border: 10px solid;
+  border-top-color: #0b3d31;
+  border-right-color: #0b3d31;
+  border-bottom-color: #a08e0d;
+  border-left-color: #a08e0d;
+  border-spacing: 10px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  background-color: var(--console-color);
+  padding-bottom: 10px;
+}
+
+.division {
+  height: 80px;
+  background-color: var(--console-color);
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  top: 47%;
+  border-radius: 30px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 65%;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+
+.buttonsContainer .row:nth-child(2) {
+  justify-content: unset;
+}
+
+.buttonsContainer .row:nth-child(2) .buttonContent:first-child {
+  flex-grow: 0.525;
+}
+
+.buttonsContainer .row:nth-child(3) {
+  padding-top: 10px;
+  justify-content: unset;
+}
+
+.buttonsContainer .row:nth-child(3) .buttonContent:first-child {
+  flex-grow: 0.96;
+}
+
+.buttonsContainer .row:nth-child(3) .buttonContent:last-child {
+  position: absolute;
+  right: 95px;
+}
+.buttonsContainer .row:nth-child(3) .buttonContent .labelsWrapper {
+  bottom: -15px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}

@@ -1,0 +1,31 @@
+import React from "react";
+import styles from "./style.module.css";
+import Display from "../display";
+import Button from "../button";
+
+const Console = () => (
+  <div className={styles.console}>
+    <div className={styles.displayContainer}>
+      <Display />
+    </div>
+    <div className={styles.division}></div>
+    <div className={styles.buttonsContainer}>
+      <div className={styles.row}>
+        <Button size="m" labels={["left", "height"]} />
+        <Button size="m" labels={["right", "speed"]} />
+        <Button size="s" labels={["on/off"]} />
+        <Button size="l" labels={["rotate", "direction"]} />
+      </div>
+      <div className={styles.row}>
+        <Button size="m" labels={["down", "mode"]} />
+        <Button size="s" labels={["mute"]} />
+      </div>
+      <div className={styles.row}>
+        <Button size="s" labels={["start/p"]} />
+        <Button size="s" labels={["reset"]} />
+      </div>
+    </div>
+  </div>
+);
+
+export default Console;

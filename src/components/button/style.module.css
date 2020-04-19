@@ -1,0 +1,50 @@
+.button {
+  background-color: #a08e0d;
+  border-radius: 50%;
+  border: 0;
+  position: relative;
+}
+.small {
+  width: 15px;
+  height: 15px;
+}
+.small + .labelsWrapper {
+  bottom: -5px;
+}
+.medium {
+  width: 30px;
+  height: 30px;
+}
+.large {
+  width: 50px;
+  height: 50px;
+}
+
+.buttonContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.labelsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -20px;
+}
+
+.labelsWrapper span {
+  color: white;
+  font-size: 8px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+.labelsWrapper span:nth-child(2) {
+  border-top: 1px solid white;
+}
