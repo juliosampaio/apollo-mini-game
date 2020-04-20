@@ -1,0 +1,21 @@
+.tile {
+  border: 1px solid var(--display-tile-color);
+  margin: 1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fill {
+  width: 80%;
+  height: 80%;
+  background-color: var(--display-tile-color);
+}
+
+.inactive {
+  border-color: var(--display-tile-inactive-color);
+}
+.inactive .fill {
+  background-color: var(--display-tile-inactive-color);
+}

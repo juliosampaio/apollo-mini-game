@@ -1,0 +1,14 @@
+@value tile from "../tile/style.module.css";
+
+.canvas {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.canvas .tile {
+  box-sizing: border-box;
+  flex: 0 0 8%;
+}
