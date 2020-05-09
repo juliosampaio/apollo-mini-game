@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 import styles from "./style.module.css";
 
-const Tile = ({ active = true }) => {
+const Tile = ({ active = false }) => {
   const classes = cx(styles.tile, {
     [styles.inactive]: !active,
   });

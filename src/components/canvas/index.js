@@ -2,12 +2,11 @@ import React from "react";
 import Tile from "../tile";
 import styles from "./style.module.css";
 
-const Canvas = ({ width, height }) => {
-  const matrix = Array(width * height).fill(null);
+const Canvas = ({ matrix = [] }) => {
   return (
     <div className={styles.canvas}>
-      {matrix.map((_, idx) => (
-        <Tile key={idx} />
+      {matrix.flat().map((active, idx) => (
+        <Tile key={idx} active={Boolean(active)} />
       ))}
     </div>
   );

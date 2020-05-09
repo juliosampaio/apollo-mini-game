@@ -7,12 +7,12 @@ const sizeClasses = {
   m: styles.medium,
   l: styles.large,
 };
-const Button = ({ size, labels = [] }) => {
+const Button = ({ size, labels = [], onClick }) => {
   const sizeClass = sizeClasses[size];
   const classes = cx(styles.button, sizeClass);
   return (
     <div className={styles.buttonContent}>
-      <button className={classes}></button>
+      <button onClick={onClick} className={classes}></button>
       <div className={styles.labelsWrapper}>
         {labels.map((label, idx) => (
           <span key={idx}>{label}</span>

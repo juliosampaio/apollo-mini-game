@@ -1,4 +1,5 @@
 .tile {
+  box-sizing: border-box;
   border: 1px solid var(--display-tile-color);
   margin: 1px;
   position: relative;
@@ -8,6 +9,7 @@
 }
 
 .fill {
+  box-sizing: border-box;
   width: 80%;
   height: 80%;
   background-color: var(--display-tile-color);
