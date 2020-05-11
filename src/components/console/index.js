@@ -12,7 +12,7 @@ const Console = () => {
         {/* <Display power={power} matrix={matrix} previewMatrix={previewMatrix} /> */}
       </div>
       <div className={styles.division}></div>
-      {/*<div className={styles.buttonsContainer}>
+      <div className={styles.buttonsContainer}>
         <div className={styles.row}>
           <Button size="m" labels={["left", "height"]} />
           <Button size="m" labels={["right", "speed"]} />
@@ -27,7 +27,11 @@ const Console = () => {
           <Button size="s" labels={["start/p"]} />
           <Button size="s" labels={["reset"]} />
         </div>
-      </div> */}
+      </div>
+      <div className={styles.label}>
+        <img src="./apollo.png" />
+      </div>
+      <div className={styles.stripe}></div>
     </div>
   );
 };

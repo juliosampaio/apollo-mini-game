@@ -61,10 +61,6 @@
 .buttonsContainer {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 65%;
-  left: 0;
-  right: 0;
   justify-content: center;
 }
 
@@ -97,4 +93,24 @@
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+.label {
+  text-align: center;
+  margin-top: 20px;
+}
+.label img {
+  width: 100px;
+  transform: rotate(-20deg);
+}
+
+.stripe {
+  position: absolute;
+  background-color: white;
+  height: 3px;
+  width: 90%;
+  left: 0%;
+  right: 0%;
+  bottom: 20px;
+  transform: translate(6%);
+  border-radius: 5px;
 }
