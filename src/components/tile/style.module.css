@@ -6,12 +6,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 10px;
+  height: 10px;
 }
 
 .fill {
   box-sizing: border-box;
-  width: 80%;
-  height: 80%;
+  width: 6px;
+  height: 6px;
   background-color: var(--display-tile-color);
 }
 

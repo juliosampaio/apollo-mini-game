@@ -10,7 +10,12 @@ const POWER = {
   OFF: "of",
 };
 const MATRIX = buildMatrix(20, 10);
-const INITIAL_STATE = { power: POWER.OFF, matrix: MATRIX };
+const PREVIEW_MATRIX = buildMatrix(4, 4);
+const INITIAL_STATE = {
+  power: POWER.OFF,
+  matrix: MATRIX,
+  previewMatrix: PREVIEW_MATRIX,
+};
 
 const buildDispatcher = (dispatch, type) => (payload) =>
   dispatch({ type, payload });

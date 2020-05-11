@@ -50,6 +50,9 @@ export class Game {
   getStatus() {
     return {
       runningTime: this.startTime - Date.now(),
+      speed: 0,
+      level: 0,
+      score: 0,
     };
   }
   playSound(sound) {

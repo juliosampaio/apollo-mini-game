@@ -7,13 +7,16 @@
   height: 600px;
   border-radius: 20px;
   position: relative;
-  margin: 0 auto;
-  padding-top: 15px;
+  left: 50%;
+  top: 50%;
+  padding-top: 20px;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
 }
 
 .displayContainer {
-  width: 180px;
-  height: 220px;
+  width: 150px;
+  height: 200px;
   border: 10px solid;
   border-top-color: var(--console-strip1-color);
   border-right-color: var(--console-strip1-color);
@@ -23,16 +26,36 @@
   margin: 0 auto;
   padding: 15px 20px;
   background-color: var(--console-color);
+  position: relative;
+}
+
+.displayContainer::before,
+.displayContainer::after {
+  content: "";
+  width: 25px;
+  height: 10px;
+  background-color: var(--console-color);
+  position: absolute;
+  transform: rotate(45deg);
+}
+.displayContainer::before {
+  left: -16px;
+  top: -9px;
+}
+.displayContainer::after {
+  bottom: -7px;
+  right: -15px;
 }
 
 .division {
   height: 80px;
   background-color: var(--console-color);
-  position: absolute;
-  left: -5px;
-  right: -5px;
-  top: 47%;
-  border-radius: 30px;
+  margin-top: 10px;
+  right: 0;
+  left: 0;
+  transform: translate(-5px, 0);
+  width: 310px;
+  border-radius: 32px;
 }
 
 .buttonsContainer {
