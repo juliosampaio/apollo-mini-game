@@ -110,7 +110,14 @@
   width: 90%;
   left: 0%;
   right: 0%;
-  bottom: 20px;
+  bottom: 25px;
   transform: translate(6%);
   border-radius: 5px;
+}
+.stripe img {
+  position: absolute;
+  width: 50px;
+  right: 40px;
+  top: -22px;
+  background-color: var(--console-color);
 }

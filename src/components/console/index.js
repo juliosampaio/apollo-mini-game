@@ -31,7 +31,9 @@ const Console = () => {
       <div className={styles.label}>
         <img src="./apollo.png" />
       </div>
-      <div className={styles.stripe}></div>
+      <div className={styles.stripe}>
+        <img src="./apollo.png" />
+      </div>
     </div>
   );
 };
