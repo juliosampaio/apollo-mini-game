@@ -1,8 +1,8 @@
 import { Game } from "../game";
 import { A, P, O, L } from "./letters";
-class IntroGame extends Game {
-  constructor() {
-    super();
+export class IntroGame extends Game {
+  constructor(matrix) {
+    super(matrix);
     this.updateIntervalInSeconds = 0.4;
     this.greeting = [A, P, O, L, L, O];
     this.greetingIndex = 0;
@@ -27,5 +27,3 @@ class IntroGame extends Game {
     console.log("APOLLO");
   }
 }
-
-export const intro = new IntroGame();

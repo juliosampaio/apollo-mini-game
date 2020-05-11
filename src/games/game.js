@@ -16,9 +16,12 @@ export class Game {
     this.frameId = 0;
     this.lastTime = 0;
     this.updateIntervalInSeconds = 0;
+    this.startTime = 0;
   }
   start() {
-    this.lastTime = Date.now();
+    const now = Date.now();
+    this.startTime = now;
+    this.lastTime = now;
     this.frameId = requestAnimationFrame(this.run.bind(this));
   }
   pause() {
@@ -43,5 +46,10 @@ export class Game {
   }
   printDot(x, y) {
     this.matrix[x][y] = 1;
+  }
+  getStatus() {
+    return {
+      runningTime: this.startTime - Date.now(),
+    };
   }
 }
