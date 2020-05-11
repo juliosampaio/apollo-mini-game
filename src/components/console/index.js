@@ -7,6 +7,7 @@ const Console = () => {
   const { power, togglePower, matrix } = useEngine();
   return (
     <div className={styles.console}>
+      <audio id="audioPlayer" />
       <div className={styles.displayContainer}>
         <Display power={power} matrix={matrix} />
       </div>

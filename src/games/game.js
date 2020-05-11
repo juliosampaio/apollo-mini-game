@@ -52,4 +52,9 @@ export class Game {
       runningTime: this.startTime - Date.now(),
     };
   }
+  playSound(sound) {
+    const audioPlayer = document.getElementById("audioPlayer");
+    audioPlayer.src = sound;
+    audioPlayer.play();
+  }
 }

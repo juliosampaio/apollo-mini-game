@@ -1,5 +1,6 @@
 import { Game } from "../game";
 import { A, P, O, L } from "./letters";
+import apolloGreeting from "../audio/apollo.mp3";
 export class IntroGame extends Game {
   constructor(matrix) {
     super(matrix);
@@ -13,7 +14,7 @@ export class IntroGame extends Game {
       if (this.greetingIndex >= this.greeting.length) {
         this.clearMatrix();
         this.pause();
-        this.playSound();
+        this.playSound(apolloGreeting);
         return;
       }
       this.clearMatrix();
@@ -21,9 +22,5 @@ export class IntroGame extends Game {
       letter.forEach(([x, y]) => this.printDot(x, y));
       this.greetingIndex++;
     }
-  }
-
-  playSound() {
-    console.log("APOLLO");
   }
 }
