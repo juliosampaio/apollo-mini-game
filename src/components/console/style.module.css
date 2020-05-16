@@ -3,20 +3,17 @@
 
 .console {
   background-color: var(--console-color);
-  width: 300px;
-  height: 600px;
+  width: 360px;
+  height: 840px;
   border-radius: 20px;
   position: relative;
-  left: 50%;
-  top: 50%;
   padding-top: 20px;
-  transform: translate(-50%, -50%);
-  transform-origin: center center;
+  margin: 0 auto;
 }
 
 .displayContainer {
-  width: 150px;
-  height: 200px;
+  width: 201px;
+  height: 283px;
   border: 10px solid;
   border-top-color: var(--console-strip1-color);
   border-right-color: var(--console-strip1-color);
@@ -24,9 +21,10 @@
   border-left-color: var(--console-strip2-color);
   border-spacing: 10px;
   margin: 0 auto;
-  padding: 15px 20px;
+  padding: 20px 15px;
   background-color: var(--console-color);
   position: relative;
+  display: flex;
 }
 
 .displayContainer::before,
@@ -48,13 +46,13 @@
 }
 
 .division {
-  height: 80px;
+  height: 100px;
   background-color: var(--console-color);
   margin-top: 10px;
   right: 0;
   left: 0;
   transform: translate(-5px, 0);
-  width: 310px;
+  width: 370px;
   border-radius: 32px;
 }
 
@@ -69,7 +67,7 @@
 }
 
 .buttonsContainer .row:nth-child(2) .buttonContent:first-child {
-  flex-grow: 0.525;
+  flex-grow: 0.544;
 }
 
 .buttonsContainer .row:nth-child(3) {
@@ -83,7 +81,7 @@
 
 .buttonsContainer .row:nth-child(3) .buttonContent:last-child {
   position: absolute;
-  right: 95px;
+  right: 110px;
 }
 .buttonsContainer .row:nth-child(3) .buttonContent .labelsWrapper {
   bottom: -15px;

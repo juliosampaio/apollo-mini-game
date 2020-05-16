@@ -9,7 +9,7 @@ const Console = () => {
     <div className={styles.console}>
       <audio id="audioPlayer" />
       <div className={styles.displayContainer}>
-        {/* <Display power={power} matrix={matrix} previewMatrix={previewMatrix} /> */}
+        <Display power={power} matrix={matrix} previewMatrix={previewMatrix} />
       </div>
       <div className={styles.division}></div>
       <div className={styles.buttonsContainer}>
@@ -29,10 +29,10 @@ const Console = () => {
         </div>
       </div>
       <div className={styles.label}>
-        <img src="./apollo.png" />
+        <img alt="apollo logo" src="./apollo.png" />
       </div>
       <div className={styles.stripe}>
-        <img src="./apollo.png" />
+        <img alt="apollo logo white" src="./apollo-white.png" />
       </div>
     </div>
   );

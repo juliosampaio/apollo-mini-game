@@ -17,10 +17,10 @@
 }
 
 .score {
-  flex: 0.15 0 15%;
+  flex: 0.15 0 12%;
 }
 .canvas {
-  flex: 0.85 0 85%;
+  flex: 0.85 0 88%;
   border: 1px solid var(--display-tile-color);
 }
 

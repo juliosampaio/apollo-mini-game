@@ -1,5 +1,5 @@
 .button {
-  background-color: #a08e0d;
+  background-color: var(--console-button-color);
   border-radius: 50%;
   border: 0;
   position: relative;

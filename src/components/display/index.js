@@ -11,7 +11,7 @@ const Display = ({ power, matrix, previewMatrix }) => (
     </div>
     <div className={styles.right}>
       <div className={styles.preview}>
-        <Canvas matrix={previewMatrix} />
+        {/* <Canvas matrix={previewMatrix} /> */}
       </div>
     </div>
   </div>
