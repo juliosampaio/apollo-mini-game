@@ -4,12 +4,18 @@ import Display from "../display";
 import Button from "../button";
 import { useEngine } from "../../hooks";
 const Console = () => {
-  const { power, togglePower, matrix, previewMatrix } = useEngine();
+  const { power, togglePower, matrix, previewMatrix, gameStatus } = useEngine();
+
   return (
     <div className={styles.console}>
       <audio id="audioPlayer" />
       <div className={styles.displayContainer}>
-        <Display power={power} matrix={matrix} previewMatrix={previewMatrix} />
+        <Display
+          power={power}
+          matrix={matrix}
+          previewMatrix={previewMatrix}
+          gameStatus={gameStatus}
+        />
       </div>
       <div className={styles.division}></div>
       <div className={styles.buttonsContainer}>
