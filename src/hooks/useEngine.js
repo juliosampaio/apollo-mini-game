@@ -1,13 +1,14 @@
-import React, { useEffect, useCallback } from "react";
-import { buildMatrix } from "../utils";
-import { IntroGame } from "../games";
-import { useAnimationFrame } from "./useAnimationFrame";
-const TOGGLE_POWER = "TOGGLE_POWER";
-const SET_CURRENT_GAME = "SET_CURRENT_GAME";
-const GET_GAME_STATUS = "GET_GAME_STATUS";
+import React, { useEffect, useCallback } from 'react';
+import { buildMatrix } from '../utils';
+import { IntroGame } from '../games';
+import { useAnimationFrame } from './useAnimationFrame';
+const TOGGLE_POWER = 'TOGGLE_POWER';
+const SET_CURRENT_GAME = 'SET_CURRENT_GAME';
+const GET_GAME_STATUS = 'GET_GAME_STATUS';
+const DUMP = false;
 const POWER = {
-  ON: "on",
-  OFF: "of",
+  ON: 'on',
+  OFF: 'off',
 };
 const MATRIX = buildMatrix(20, 10);
 const PREVIEW_MATRIX = buildMatrix(4, 4);
@@ -25,7 +26,7 @@ const engineReducer = (state, action) => {
     case TOGGLE_POWER: {
       const { OFF, ON } = POWER;
       return {
-        ...state,
+        ...INITIAL_STATE,
         power: state.power === ON ? OFF : ON,
       };
     }
