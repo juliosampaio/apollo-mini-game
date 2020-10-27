@@ -20,9 +20,40 @@
   padding-top: 5px;
 }
 
-.score {
+.scoreAndSound {
   flex: 0.15 0 12%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
+
+.soundConfig {
+  font-size: 25px;
+}
+
+.on {
+}
+
+.off {
+  color: var(--display-tile-inactive-color);
+}
+
+.score {
+  margin-left: 17px;
+  font-size: 29px;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.status span {
+  margin: 5px;
+}
+
 .canvas {
   flex: 0.85 0 88%;
   border: 1px solid var(--display-tile-color);

@@ -1,0 +1,39 @@
+@value buttonContent from '../button/style.module.css';
+@value labelsWrapper from '../button/style.module.css';
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonsContainer .row:nth-child(2) {
+  justify-content: unset;
+}
+
+.buttonsContainer .row:nth-child(2) .buttonContent:first-child {
+  flex-grow: 0.544;
+}
+
+.buttonsContainer .row:nth-child(3) {
+  padding-top: 10px;
+  justify-content: unset;
+}
+
+.buttonsContainer .row:nth-child(3) .buttonContent:first-child {
+  flex-grow: 0.96;
+}
+
+.buttonsContainer .row:nth-child(3) .buttonContent:last-child {
+  position: absolute;
+  right: 110px;
+}
+.buttonsContainer .row:nth-child(3) .buttonContent .labelsWrapper {
+  bottom: -15px;
+}
