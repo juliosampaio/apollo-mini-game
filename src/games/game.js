@@ -1,15 +1,3 @@
-import { buildMatrix } from "../utils";
-
-class NotImplementedError extends Error {
-  constructor(method) {
-    super(`you must implement the method ${method.name}`);
-  }
-}
-
-const throwNotImplemented = (method) => {
-  throw new NotImplementedError(method);
-};
-
 export class Game {
   constructor(matrix) {
     this.matrix = matrix;
@@ -56,7 +44,7 @@ export class Game {
     };
   }
   playSound(sound) {
-    const audioPlayer = document.getElementById("audioPlayer");
+    const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.src = sound;
     audioPlayer.play();
   }

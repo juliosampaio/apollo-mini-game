@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #80a9da;
+  font-family: 'SevenSegment';
 }
 :global(:root) {
   --console-button-color: #a08e0d;
@@ -14,4 +15,8 @@ body {
   --display-color: #6d785c;
   --display-tile-color: #000;
   --display-tile-inactive-color: #60705b;
+}
+@font-face {
+  font-family: 'SevenSegment';
+  src: local('SevenSegment'), url(./fonts/seven-segment.ttf) format('truetype');
 }

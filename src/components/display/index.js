@@ -1,13 +1,41 @@
-import React from "react";
-import Canvas from "../canvas";
-import styles from "./style.module.css";
+import React from 'react';
+import cx from 'classnames';
+import Canvas from '../canvas';
+import styles from './style.module.css';
+import { isOn } from '../../utils';
 
-const Display = ({ power, matrix, previewMatrix, gameStatus = {} }) => {
-  const isOn = (power) => power === "on";
+const SoundConfig = ({ active }) => {
+  const classes = cx(styles.soundConfig, {
+    [styles.on]: active,
+    [styles.off]: !active,
+  });
+  return <div className={classes}>♫</div>;
+};
+
+const Score = ({ active }) => {
+  const classes = cx(styles.score, {
+    [styles.on]: active,
+    [styles.off]: !active,
+  });
+  return <div className={classes}>10000</div>;
+};
+
+const Display = ({
+  power,
+  level,
+  speed,
+  sound,
+  matrix,
+  previewMatrix,
+  gameStatus = {},
+}) => {
   return (
     <div className={styles.display}>
       <div className={styles.left}>
-        <div className={styles.score}>{gameStatus && gameStatus.score}</div>
+        <div className={styles.scoreAndSound}>
+          {isOn(power) && <SoundConfig active={isOn(sound)} />}
+          {isOn(power) && <Score active={isOn(power)} />}
+        </div>
         <div className={styles.canvas}>
           {isOn(power) && <Canvas matrix={matrix} />}
         </div>
@@ -16,6 +44,17 @@ const Display = ({ power, matrix, previewMatrix, gameStatus = {} }) => {
         <div className={styles.preview}>
           {isOn(power) && <Canvas matrix={previewMatrix} />}
         </div>
+        <div className={styles.preview}></div>
+        <div className={styles.preview}></div>
+        {isOn(power) && (
+          <div className={styles.status}>
+            <div>speed</div>
+            <div>{gameStatus?.speed}</div>
+            <span />
+            <div>{gameStatus?.level}</div>
+            <div>level</div>
+          </div>
+        )}
       </div>
     </div>
   );
