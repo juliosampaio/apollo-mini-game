@@ -10,25 +10,22 @@
   display: flex;
   flex-direction: column;
   flex: 0.65 0 65%;
-  padding-top: 5px;
 }
 .right {
   display: flex;
   flex: 0.35 0 35%;
   flex-direction: column;
   align-items: center;
-  padding-top: 5px;
 }
 
 .scoreAndSound {
   flex: 0.15 0 12%;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 .soundConfig {
-  font-size: 25px;
+  font-size: 29px;
+  line-height: 29px;
 }
 
 .on {
@@ -41,6 +38,7 @@
 .score {
   margin-left: 17px;
   font-size: 29px;
+  letter-spacing: 2px;
 }
 
 .status {
