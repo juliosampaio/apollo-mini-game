@@ -3,37 +3,47 @@ import cx from 'classnames';
 import Canvas from '../canvas';
 import styles from './style.module.css';
 import { isOn } from '../../utils';
+import { useEngineState } from '../../hooks';
 
-const SoundConfig = ({ active }) => {
+const SoundConfig = () => {
+  const { sound, power } = useEngineState();
   const classes = cx(styles.soundConfig, {
-    [styles.on]: active,
-    [styles.off]: !active,
+    [styles.on]: isOn(sound),
+    [styles.off]: !isOn(sound),
   });
-  return <div className={classes}>♫</div>;
+  return isOn(power) && <div className={classes}>♫</div>;
 };
 
 const Score = ({ active }) => {
+  const { power, gameStatus } = useEngineState();
+  console.log({ gameStatus });
   const classes = cx(styles.score, {
     [styles.on]: active,
     [styles.off]: !active,
   });
-  return <div className={classes}>10000</div>;
+  return (
+    isOn(power) && (
+      <div className={classes}>{`${gameStatus?.score}`.padStart(4, 0)}</div>
+    )
+  );
 };
 
-const Display = ({
-  power,
-  level,
-  speed,
-  sound,
-  matrix,
-  previewMatrix,
-  gameStatus = {},
-}) => {
+const Display = () => {
+  const {
+    power,
+    level,
+    speed,
+    sound,
+    matrix,
+    previewMatrix,
+    gameStatus,
+  } = useEngineState();
+
   return (
     <div className={styles.display}>
       <div className={styles.left}>
         <div className={styles.scoreAndSound}>
-          {isOn(power) && <SoundConfig active={isOn(sound)} />}
+          <SoundConfig active={isOn(sound)} />
           {isOn(power) && <Score active={isOn(power)} />}
         </div>
         <div className={styles.canvas}>
@@ -46,7 +56,7 @@ const Display = ({
         </div>
         <div className={styles.preview}></div>
         <div className={styles.preview}></div>
-        {isOn(power) && (
+        {/* {isOn(power) && (
           <div className={styles.status}>
             <div>speed</div>
             <div>{gameStatus?.speed}</div>
@@ -54,7 +64,7 @@ const Display = ({
             <div>{gameStatus?.level}</div>
             <div>level</div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
