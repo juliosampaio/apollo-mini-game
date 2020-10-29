@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from 'react';
+import { useIntroGame, useGameStatus } from './effects';
 
 import {
   buildActionsDispatchers,
@@ -12,6 +13,8 @@ export const ActionsContext = createContext();
 export const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(engineReducer, INITIAL_STATE);
   const actions = buildActionsDispatchers(dispatch);
+  useIntroGame(state, actions);
+  useGameStatus(actions);
   return (
     <Context.Provider value={state}>
       <ActionsContext.Provider value={actions}>

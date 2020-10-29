@@ -5,6 +5,9 @@ export class Game {
     this.lastTime = 0;
     this.updateIntervalInSeconds = 0;
     this.startTime = 0;
+    this.showSound = true;
+    this.showScore = true;
+    this.showStatus = true;
   }
   start() {
     const now = Date.now();
