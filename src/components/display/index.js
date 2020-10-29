@@ -6,24 +6,29 @@ import { isOn } from '../../utils';
 import { useEngineState } from '../../hooks';
 
 const SoundConfig = () => {
-  const { sound, power } = useEngineState();
+  const { sound, power, currentGame } = useEngineState();
   const classes = cx(styles.soundConfig, {
     [styles.on]: isOn(sound),
     [styles.off]: !isOn(sound),
   });
-  return isOn(power) && <div className={classes}>♫</div>;
+  return (
+    isOn(power) && (
+      <div className={classes}>{currentGame?.showSound && '♫'}</div>
+    )
+  );
 };
 
 const Score = ({ active }) => {
-  const { power, gameStatus } = useEngineState();
-  console.log({ gameStatus });
+  const { power, currentGame } = useEngineState();
   const classes = cx(styles.score, {
     [styles.on]: active,
     [styles.off]: !active,
   });
   return (
     isOn(power) && (
-      <div className={classes}>{`${gameStatus?.score}`.padStart(4, 0)}</div>
+      <div className={classes}>
+        {currentGame?.showScore && `${currentGame?.score || 0}`.padStart(4, 0)}
+      </div>
     )
   );
 };
@@ -37,6 +42,7 @@ const Display = () => {
     matrix,
     previewMatrix,
     gameStatus,
+    currentGame,
   } = useEngineState();
 
   return (
@@ -56,7 +62,7 @@ const Display = () => {
         </div>
         <div className={styles.preview}></div>
         <div className={styles.preview}></div>
-        {/* {isOn(power) && (
+        {isOn(power) && currentGame?.showStatus && (
           <div className={styles.status}>
             <div>speed</div>
             <div>{gameStatus?.speed}</div>
@@ -64,7 +70,7 @@ const Display = () => {
             <div>{gameStatus?.level}</div>
             <div>level</div>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
