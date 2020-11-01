@@ -19,16 +19,13 @@
 }
 
 .scoreAndSound {
-  flex: 0.15 0 12%;
+  height: 30px;
   display: flex;
 }
 
 .soundConfig {
   font-size: 29px;
   line-height: 29px;
-}
-
-.on {
 }
 
 .off {
@@ -53,7 +50,7 @@
 }
 
 .canvas {
-  flex: 0.85 0 88%;
+  height: 210px;
   border: 1px solid var(--display-tile-color);
 }
 

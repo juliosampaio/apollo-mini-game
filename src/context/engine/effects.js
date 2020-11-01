@@ -1,19 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { isOn } from '../../utils';
 import { IntroGame } from '../../games';
 import { useAnimationFrame } from '../../hooks';
+import { ResetGame } from '../../games/reset';
 
 export const useIntroGame = (state, actions) => {
-  const { power, matrix } = state;
+  const { currentGame } = state;
   const { setCurrentGame } = actions;
-  const action = useRef({ setCurrentGame });
-  const game = useRef(new IntroGame(matrix));
+  const isGameOver = currentGame?.isGameOver;
   useEffect(() => {
-    if (isOn(power)) {
-      game.current.start();
-      action.current.setCurrentGame(game.current);
+    if (currentGame?.isGameOver && currentGame instanceof ResetGame) {
+      setCurrentGame(new IntroGame().start());
     }
-  }, [power]);
+  }, [isGameOver, currentGame, setCurrentGame]);
 };
 
 export const useGameStatus = ({ getGameStatus }) => {

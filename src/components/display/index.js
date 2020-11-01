@@ -27,24 +27,15 @@ const Score = ({ active }) => {
   return (
     isOn(power) && (
       <div className={classes}>
-        {currentGame?.showScore && `${currentGame?.score || 0}`.padStart(4, 0)}
+        {currentGame?.showScore &&
+          `${currentGame?.getStatus()?.score || 0}`.padStart(4, 0)}
       </div>
     )
   );
 };
 
 const Display = () => {
-  const {
-    power,
-    level,
-    speed,
-    sound,
-    matrix,
-    previewMatrix,
-    gameStatus,
-    currentGame,
-  } = useEngineState();
-
+  const { power, sound, gameStatus, currentGame } = useEngineState();
   return (
     <div className={styles.display}>
       <div className={styles.left}>
@@ -53,12 +44,12 @@ const Display = () => {
           {isOn(power) && <Score active={isOn(power)} />}
         </div>
         <div className={styles.canvas}>
-          {isOn(power) && <Canvas matrix={matrix} />}
+          {isOn(power) && <Canvas matrix={currentGame?.matrix} />}
         </div>
       </div>
       <div className={styles.right}>
         <div className={styles.preview}>
-          {isOn(power) && <Canvas matrix={previewMatrix} />}
+          {isOn(power) && <Canvas matrix={currentGame?.previewMatrix} />}
         </div>
         <div className={styles.preview}></div>
         <div className={styles.preview}></div>

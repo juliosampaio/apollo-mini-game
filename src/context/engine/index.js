@@ -4,14 +4,14 @@ import { useIntroGame, useGameStatus } from './effects';
 import {
   buildActionsDispatchers,
   engineReducer,
-  INITIAL_STATE,
+  buildInitialState,
 } from './reducer';
 
 export const Context = createContext();
 export const ActionsContext = createContext();
 
 export const Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(engineReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(engineReducer, buildInitialState());
   const actions = buildActionsDispatchers(dispatch);
   useIntroGame(state, actions);
   useGameStatus(actions);
