@@ -10,7 +10,7 @@
 
 .displayContainer {
   width: 201px;
-  height: 283px;
+  height: 245px;
   border: 10px solid;
   border-top-color: var(--console-strip1-color);
   border-right-color: var(--console-strip1-color);
