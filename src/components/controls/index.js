@@ -1,4 +1,5 @@
 import React from 'react';
+import { CarRacing } from '../../games/car-raging';
 import { useEngineActions, useEngine } from '../../hooks';
 import Button from '../button';
 import styles from './style.module.css';
@@ -6,7 +7,7 @@ import styles from './style.module.css';
 const Controls = () => {
   const [
     { currentGame },
-    { togglePower, toggleSound, resetConsole },
+    { togglePower, toggleSound, resetConsole, setCurrentGame },
   ] = useEngine();
   return (
     <div className={styles.buttonsContainer}>
@@ -29,7 +30,11 @@ const Controls = () => {
         <Button size='s' labels={['mute']} onClick={toggleSound} />
       </div>
       <div className={styles.row}>
-        <Button size='s' labels={['start/p']} />
+        <Button
+          size='s'
+          labels={['start/p']}
+          onClick={() => setCurrentGame(new CarRacing().start())}
+        />
         <Button size='s' labels={['reset']} onClick={resetConsole} />
       </div>
     </div>

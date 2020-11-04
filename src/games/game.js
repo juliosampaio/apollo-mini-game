@@ -24,6 +24,7 @@ export class Game {
     this.showStatus = true;
     this.isGameOver = false;
     this.audioPlayer = new AudioPlayer('audioPlayer');
+    this.gameStatus = {};
   }
   start() {
     const now = Date.now();
@@ -60,19 +61,29 @@ export class Game {
   }
   printDot(x, y, matrix) {
     if (!matrix) return;
-    matrix[x][y] = 1;
+    if (matrix[x] === undefined || matrix[x][y] === undefined) return;
+    matrix[x][y] = { x, y };
+    return { x, y };
   }
+
+  clearDot(x, y, matrix) {
+    if (!matrix) return;
+    if (matrix[x] === undefined || matrix[x][y] === undefined) return;
+    matrix[x][y] = 0;
+  }
+
   getStatus() {
-    return {
+    this.gameStatus = {
       runningTime: this.startTime - Date.now(),
       speed: 0,
       level: 0,
       score: 0,
+      ...this.gameStatus,
       isGameOver: this.isGameOver,
     };
+    return this.gameStatus;
   }
   playSound(sound) {
-    console.log('kkk');
     this.audioPlayer.play(sound);
   }
   onDown() {}
@@ -82,5 +93,20 @@ export class Game {
   onReset() {}
   gameOver() {
     this.isGameOver = true;
+  }
+  printObject(startRow, startCol, shape = []) {
+    let x = startRow;
+    let y = startCol;
+    for (let row = 0; row < shape.length; row++) {
+      for (let col = 0; col < shape[row].length; col++) {
+        const shouldPrint = shape[row][col] === 1;
+        if (shouldPrint) {
+          this.printDot(x, y, this.matrix);
+        }
+        y++;
+      }
+      x++;
+      y = startCol;
+    }
   }
 }
