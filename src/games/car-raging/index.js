@@ -44,10 +44,19 @@ export class CarRacing extends Game {
   }
   paintCar() {
     this.car.paint();
+    if (this.car.isColliding(this.walls[0][0])) {
+      this.pause();
+    }
   }
   getStatus() {
     const status = super.getStatus();
     status.score += 1;
     return status;
+  }
+  onLeft() {
+    this.car.left();
+  }
+  onRight() {
+    this.car.right();
   }
 }

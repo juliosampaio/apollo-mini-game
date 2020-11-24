@@ -9,11 +9,20 @@ const Controls = () => {
     { currentGame },
     { togglePower, toggleSound, resetConsole, setCurrentGame },
   ] = useEngine();
+
   return (
     <div className={styles.buttonsContainer}>
       <div className={styles.row}>
-        <Button size='m' labels={['left', 'height']} />
-        <Button size='m' labels={['right', 'speed']} />
+        <Button
+          size='m'
+          labels={['left', 'height']}
+          onClick={() => currentGame.onLeft()}
+        />
+        <Button
+          size='m'
+          labels={['right', 'speed']}
+          onClick={() => currentGame.onRight()}
+        />
         <Button size='s' labels={['on/off']} onClick={togglePower} />
         <Button
           size='l'
