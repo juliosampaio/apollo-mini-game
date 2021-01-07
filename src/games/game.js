@@ -7,7 +7,10 @@ class AudioPlayer {
     if (this.isPlaying) return;
     this.isPlaying = true;
     this.audioPlayer.src = sound;
-    this.audioPlayer.play().finally(() => (this.isPlaying = false));
+    this.audioPlayer
+      .play()
+      .catch(console.log)
+      .finally(() => (this.isPlaying = false));
   }
 }
 
@@ -91,6 +94,7 @@ export class Game {
   onRight() {}
   onUp() {}
   onReset() {}
+  onStartPause() {}
   gameOver() {
     this.isGameOver = true;
   }

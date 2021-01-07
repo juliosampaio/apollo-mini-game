@@ -36,8 +36,8 @@ export class Car extends GameObject {
 }
 
 export class Wall extends GameObject {
-  constructor(x, y, game) {
-    super(game, [[1], [1], [1]]);
+  constructor(x, y, game, shape = [[1], [1], [1]]) {
+    super(game, shape);
     this.x = x;
     this.y = y;
   }
@@ -46,5 +46,15 @@ export class Wall extends GameObject {
     super.paint(this.x, this.y);
     this.x++;
     if (this.x > this.game.matrix.length - 1) this.x = -2;
+  }
+}
+
+export class HorizontalWall extends Wall {
+  constructor(x, y, game) {
+    super(x, y, game, [[1, 1, 1]]);
+  }
+  paint() {
+    this.clearPaintedRegion();
+    super.paint(this.x, this.y);
   }
 }

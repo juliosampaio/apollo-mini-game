@@ -3,6 +3,13 @@ import { A, P, O, L, G, _0, _1, _2 } from './letters';
 import apolloGreeting from '../audio/apollo.mp3';
 import beep from '../audio/beep.mp3';
 import { buildMatrix } from '../../utils';
+import { CarRacing } from '../car-raging';
+
+const TITLES = [
+  [[G, _0, _1], CarRacing],
+  [[G, _0, _2], undefined],
+];
+
 export class IntroGame extends Game {
   constructor() {
     super(buildMatrix(17, 10));
@@ -13,11 +20,9 @@ export class IntroGame extends Game {
     this.showScore = false;
     this.showStatus = false;
     this.greetingShown = false;
-    this.games = [
-      [G, _0, _1],
-      [G, _0, _2],
-    ];
+    this.games = TITLES;
     this.selectedGameIndex = 0;
+    this.currentGame = undefined;
   }
 
   showGreeting() {
@@ -44,7 +49,8 @@ export class IntroGame extends Game {
 
   showGameNumber() {
     if (!this.greetingShown) return;
-    this.games[this.selectedGameIndex].map((l) =>
+    const [gameNumber] = this.games[this.selectedGameIndex];
+    gameNumber.map((l) =>
       l.forEach(([x, y]) => this.printDot(x, y, this.matrix))
     );
   }
@@ -71,5 +77,13 @@ export class IntroGame extends Game {
       this.selectedGameIndex = this.games.length - 1;
     }
     this.playSound(beep);
+  }
+  startSelectedGame() {
+    if (!this.greetingShown) return;
+    if (!this.currentGame) {
+      const [, SelectedGame] = this.games[this.selectedGameIndex];
+      this.currentGame = new SelectedGame().start();
+    }
+    return this.currentGame;
   }
 }

@@ -1,13 +1,13 @@
 import { Game } from '../game';
 import { buildMatrix } from '../../utils';
-import { Car, Wall } from './objects';
+import { Car, HorizontalWall, Wall } from './objects';
 
 export class CarRacing extends Game {
   constructor() {
     super(buildMatrix(17, 10), buildMatrix(4, 4));
     this.leftWallStart = -2;
     this.car = new Car(10, 5, this);
-    console.log(this.car);
+    this.finishLine = new HorizontalWall(8, 1, this);
     this.walls = [
       [
         new Wall(-2, 0, this),
@@ -30,6 +30,7 @@ export class CarRacing extends Game {
     this.paintPreview();
     this.paintWalls();
     this.paintCar();
+    this.printFinishLine();
   }
 
   paintPreview() {
@@ -47,6 +48,9 @@ export class CarRacing extends Game {
     if (this.car.isColliding(this.walls[0][0])) {
       this.pause();
     }
+  }
+  printFinishLine() {
+    this.finishLine.paint();
   }
   getStatus() {
     const status = super.getStatus();
